@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+  	
+	<title>Tuhey Pool</title>
+</head>
+<body>
+<header>
+	<nav class="cd-stretchy-nav">
+		<a class="cd-nav-trigger" href="#0">
+			Menu
+			<span aria-hidden="true"></span>
+		</a>
+
+		<ul>
+			<li><a onclick="callHome()"><span>Home</span></a></li>
+			<li><a onclick="callCalendar()"><span>Calendar</span></a></li>
+			<li><a onclick="callCoupons()"><span>Coupons</span></a></li>
+			<li><a onclick="callAboutUs()"><span>About Us</span></a></li>
+			<li><a onclick="callContactUs()"><span>Contact</span></a></li>
+		</ul>
+
+		<span aria-hidden="true" class="stretchy-nav-bg"></span>
+	</nav>
+</header>
+
+<div class="cd-main-content">
+<div id="home">
+<main class="maincontent">
+	<div class="header">About Us</div>
+	Welcome to the Tuhey Pool webpage. 
+</main>
+</div>
+</div>
+	
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/main.js"></script> 
+<script type="text/javascript" charset="utf-8">
+
+			function callHome()
+			{
+				window.location = "index.html";
+			}
+
+             function callAoutUs()
+             {
+                window.location = "AboutUs.html";
+             }
+
+             function callCalendar()
+             {
+                window.location = "Calendar.html";
+             }
+
+             function callContactUs()
+             {
+                window.location = "ContactUs.html";
+             }
+
+             function callCoupons()
+             {
+                window.location = "Coupons.html";
+             }
+
+             function callLogin()
+             {
+                window.location = "Login.html";
+             }
+
+          </script>
+</body>
+</html>
