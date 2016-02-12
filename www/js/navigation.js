@@ -2,7 +2,7 @@ function callHome(){
 				window.location = "index.html";
 			}
 
-             function callAoutUs()
+             function callAboutUs()
              {
                 window.location = "AboutUs.html";
              }
