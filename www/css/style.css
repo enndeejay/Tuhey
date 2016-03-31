@@ -28,7 +28,7 @@ html * {
 }
 
 body {
-  color: #003c5d;
+  font-color: #003c5d;
   background-size: auto 100%;
   background-color:#114e85;
   top:0px fixed;
@@ -84,6 +84,16 @@ img {
   background-repeat: no-repeat;
 }
 
+.backgroundcontent {
+  padding-top:15%;
+  background-attachment: scroll;
+  background-color: #114e85;
+  background-image: url(../img/background.jpg); 
+  background-size: 100%;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+
 /* -------------------------------- 
 
 main content basic style
@@ -100,7 +110,7 @@ main content basic style
 .introduction {
   top:80px;
   border-radius: 20px;
-  background: rgba(74, 166, 236, 0.7);
+  background: rgba(74, 166, 236, 0.4);
   width: 90%;
   margin: 20px;
   margin-top: 80px;
@@ -110,7 +120,7 @@ main content basic style
 
 .maincontent{ 
   border-radius: 20px;
-  background: rgba(74, 166, 236, 0.7);
+  background: rgba(74, 166, 236, 0.4);
   width: 90%;
   margin: 20px;
   margin-top: 30px;
