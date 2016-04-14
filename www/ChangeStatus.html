@@ -10,13 +10,17 @@
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<link rel="stylesheet" href="css/switchstyle.css"> 
+    <link rel="stylesheet" href="css/radio.css">
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
 </head>
 
 <body>
-
+    
 <main>
 	<div class="backgroundcontent">	 
 
@@ -32,30 +36,50 @@
 			<div class="maincontent">
 		
 				<form align="center">
-					
-					<div class="status block" margin="10px">
-						<h4>Select Status</h4>
+                    <div id="radio">
+                        <input type="radio" name="radio" value="open" class="radio" checked />
+                        <label for="open">Open</label>
+                    </div>
+                    
+                    <div id="radio">
+                        <input type="radio" name="radio" value="warning" class="radio"/>
+                        <label for="warning">Warning</label>
+                    </div>
 
-						<label for="status">Open 
-							<input type="radio" name="status" value="open" checked> <br />
-						</label>
+                    <div id="radio">	
+                        <input type="radio" name="radio" value="closed" class="radio"/>
+                        <label for="closed">Closed</label>
+                    </div>
+<br /><br /><br />
+						<form>
+                        <input type="radio" name="status" value="open">Open <br>
+                        <input type="radio" name="status" value="closed">Closed <br>
+                        <input type="radio" name="status" value="warning">Warning <br>
+                        <input type="text" id="description">
+                        <input id="submit" type="button" value="submit" onclick="submitStatus()"> <br>
+                        </form>
+                        
+                        <script>
+                            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/");
+                            var statusRef = ref.child("status");
+                            function submitStatus() {
+                                var tempStatus;
+                                var desc;
+                                var radios = document.getElementsByName("status");
+                                for (var i=0, length = radios.length; i < length; i++) {
+                                    if(radios[i].checked) {
+                                        tempStatus = radios[i].id;
+                                    }
+                                    desc = document.getElementById("description").value;
+                                }
 
-						<label >Closed 
-						 	<input type="radio" name="status" value="closed" >  <br />
-						 </label>
-
-						<label >Warning 
-							<input type="radio" name="status" value="warning">  <br />
-						</label>
-		 				
-						<label>
-				      		<span>Description</span> <br />
-				      		<textarea id="description" name="description"></textarea> <br />
-				      		
-				      		<input type="button" value="Change Status" />
-				    	</label>
-
-				  </div>
+                                statusRef.set({
+                                    status: tempStatus,
+                                    description: desc
+                                });
+                            }
+                        </script>
+                         
 				</form>
 
 				</div>

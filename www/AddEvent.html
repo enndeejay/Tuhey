@@ -5,7 +5,7 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Merriweather:400,700' rel='stylesheet' type='text/css'>
 
-	<title>Coupons</title>
+	<title>Change Status</title>
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
@@ -13,40 +13,54 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
 </head>
 
 <body>
-
+    
+<main>
 <main>
 	<div class="backgroundcontent">	 
 
 		<div class="content">
 			<div id="introduction">
 			<div class="introduction" top="100px">
-				<div class="header">Coupons</div>
-				<center><i>Insert instructions for admin</i> </center> <br /> 
-			</div>
-			</div>
+		          <div class="header">Add Event</div>
+					 
+                    <center>
+                    <form>
+                        <input type="text" id="nameInput" value="Event Name"></input> <br>
+                        <input type="text" id="dateInput" value="MM/DD/YYYY"></input><br>
+                        <input type="text" id="timeInput" value="Time"></input> <br> 
 
-			<div id="home">
-			<div class="maincontent">
-		
-				<form align="center">
-					
-					<div class="status block" margin="10px">
-						<h4>Coupons</h4>
+                        <button onclick="addEvent()">Add Event</button>
+                        <br>
+                        <label id="userMessage" value=""></label>
+                    </form>
+                    </center>
+        
+                    <script> 
+                        var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/Calendar");
+                        function addEvent() {
+                            var eventName = document.getElementById("nameInput").value;
+                            var dateInput = document.getElementById("dateInput").value;
+                            var timeInput = document.getElementById("timeInput").value; 
 
-						hello add current couposn hur
-
-				  </div>
-				</form>
-
-				</div>
-			</div>
-
+                            ref.push({
+                                Name: eventName, 
+                                Date: dateInput,
+                                Time: timeInput
+                            });
+                         } 
+                    </script>
+            </div>
+        </div>
+    </div>
 			
-		</div>
-	</main>
+  </div>
+</main>
 
 
 	<a href="#cd-nav" class="cd-nav-trigger">Menu 

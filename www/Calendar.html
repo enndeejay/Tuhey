@@ -4,172 +4,67 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- calendar links -->
-	<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<!-- -->
-	
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Merriweather:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/reset.css"> 
+	    <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="css/weather.css">
 	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
   	
 	<title>Tuhey Pool</title>
-	
-	<!-- calendar script -->
-	<script>
-		$(function() {
-			$( "#datepicker-1" ).datepicker({
-			
-				onSelect: function (date) {
-					var date = $(this).val();
-					document.getElementById("output").innerHTML = date;
-					
-				}
-			
-			});
-			
-		});
-		
-	</script>
-		
-		<!-- End Calender Script -->
-		<!-- Calendar Style -->
-		
-		<style>
-			
-			div.ui-datepicker{
-				
-				background: #88A1B7;
-			}
-			
-			.ui-datepicker tbody td {
-			
-			}
-			
-			div.ui-datepicker-header{
-			
-				background: #375D81;
-				border-width:0px;
-			
-			}
-			.ui-datepicker-calendar .ui-state-active {
-			
-				background: #c54043;
-				border: 1px solid #621e1f;
-				color: #e0e0e0;
-				
-			}
-			
-			.ui-datepicker-calendar .ui-state-hover {
-			
-				background: #d57779;
-				border: 1px solid #e0e0e0;
-				color: #e0e0e0;
-			
-			}
-			
-			.ui-datepicker-today a.ui-state-highlight {
-			
-				background: #cfd9e2;
-				border: 0px;
-			}
-			
-			.ui-datepicker-today a.ui-state-active {
-			
-				background: #c54043;
-				border: 1px solid #621e1f;
-				color: #e0e0e0;
-			}
-			
-		</style>
-		
-		<!-- end calendar style -->
-	
 </head>
 <body>
 
-	
-
-<header>
-	<nav class="cd-stretchy-nav">
-		<a class="cd-nav-trigger" href="#0">
-			Menu
-			<span aria-hidden="true"></span>
-		</a>
-
-		<ul>
-			<li><a onclick="callHome()"><span>Home</span></a></li>
-			<li><a onclick="callCalendar()"><span>Calendar</span></a></li>
-			<li><a onclick="callCoupons()"><span>Coupons</span></a></li>
-			<li><a onclick="callAboutUs()"><span>About Us</span></a></li>
-			<li><a onclick="callContactUs()"><span>Contact</span></a></li>
-		</ul>
-
-		<span aria-hidden="true" class="stretchy-nav-bg"></span>
-	</nav>
-</header>
-
-<div class="cd-main-content">
-<div id="home">
-<main class="maincontent">
-	<div class="header">Calendar</div>
-	<bold>bold</bold><br />
-	<i>italics</i><br />
-	<u>underline</u><br />
-	<a href="/">link</a><br />
-	insert calendar script
-	
-	<table>
-			<tr>
-				<td style="width:40%">
-				</td>
-				<td>
-					<div type="text" id="datepicker-1" name="datepicker1"/>
-				</td>
-				<td style="width:40%">
-				</td>
-			</tr>
-	</table>
-	<h1 id="output"></h1>
+<main>
+	<div class="backgroundcontent">	
+        <div class="weather">  
+            <iframe src="CalendarInframe.html" width="330" height="500" scrolling="yes"></iframe>     
+        </div>
+    </div> 
 </main>
-</div>
-</div>
 
-<script src="js/jquery-2.1.4.js"></script>
-<script src="js/main.js"></script> 
-<script type="text/javascript" charset="utf-8">
 
-			function callHome(){
-				window.location = "index.html";
-			}
+	<a href="#cd-nav" class="cd-nav-trigger">Menu 
+		<span class="cd-nav-icon"></span>
 
-             function callAoutUs()
-             {
-                window.location = "AboutUs.html";
-             }
+		<svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+			<circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+		</svg>
+	</a>
+	
+	<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Navigation</h2>
 
-             function callCalendar()
-             {
-                window.location = "Calendar.html";
-             }
-
-             function callContactUs()
-             {
-                window.location = "ContactUs.html";
-             }
-
-             function callCoupons()
-             {
-                window.location = "Coupons.html";
-             }
-
-             function callLogin()
-             {
-                window.location = "Login.html";
-             }
-
-          </script>
+				<nav>
+					<ul class="cd-primary-nav">
+						<li><a href="Coupons.html">Login</a></li>
+						<li><a onclick="callHome()" class="selected">Home</a></li>
+						<li><a onclick="callCalendar()">Calendar & Events</a></li> 
+						<li><a onclick="callCoupons()">Coupons</a></li>
+						<li><a onclick="callAboutUs">About Us</a></li>
+						<li><a onclick="callLogout()">Logout</a></li>
+					</ul>
+				</nav>
+			</div><!-- .cd-half-block -->
+			
+			<div class="cd-half-block">
+				<address>
+					<ul class="cd-contact-info">
+						<li><a href="mailto:tjhavens@bsu.edu">tjhavens@bsu.edu</a></li>
+						<li>(765) 747-4734</li>
+						<li>
+							<span>500 W North St</span>
+							<span>Muncie, IN 47308</span>
+						</li>
+					</ul>
+				</address>
+			</div> <!-- .cd-half-block -->
+		</div> <!-- .cd-navigation-wrapper -->
+	</div> <!-- .cd-nav -->
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
 </body>
 </html>
