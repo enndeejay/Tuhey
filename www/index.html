@@ -13,8 +13,9 @@
 	<script src="js/modernizr.js"></script> <!-- Modernizr -->
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    
 
 </head>
 
@@ -22,36 +23,76 @@
     
 <main>
     
-	<div class="background">	 
+	<div class="background"><br/>
         <h1>Welcome to Tuhey Pool!</h1>
-
-		<h2>Welcome back for another successful swim season at our heated outdoor 50 meter community swimming pool located at beautiful Tuhey Park.</h2>
+		<h2>
+            <b>General Admission Hours</b><br/>
+            Monday though Friday: 7AM to 7PM<br/>
+            Saturday and Sunday: Noon to 7PM
+        </h2><br/>
         
 		<div class="introbox"> 
 			<div class="introduction">
 		          <div class="header">Current Status</div>
-					<p><b>General Admission Hours</b></p> 
-                    <p>Monday though Friday from 7AM to 7PM</p>
-                    <p>Saturday and Sunday from Noon to 7PM</p>
-                    <p>The pool opens and closes based on outdoor weather condition</p>
+                    <center>
+                    **The pool opens and closes based on outdoor weather condition**
+                        <br/><br/>
+                    <div id="StatusImage" width="50" height="50"></div>
                     
-						<center><textarea id="area"></textarea></center>
+                    <TextBox ID="condition" runat="server" onfocus="blur();" BorderStyle="None"></TextBox><br/><br/>
+                    <TextBox ID="descOutput" runat="server" onfocus="blur();" BorderStyle="None"></TextBox> 
+                    
+                    <br/><br />
+                        
                         <script>
-                            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/status/");   
+                            var currentIMG = document.createElement("IMG"); 
+                            
+                            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/");   
                             ref.on("child_added", function(snapshot) {
                                 var changedPost = snapshot.val();
-                                document.getElementById("area").value = "The pool is " + changedPost.status + " " + changedPost.description;
+                                
+                                if(changedPost.description==null){
+                                    document.getElementById("descOutput").innerHTML = "";
+                                }
+                                else{
+                                    document.getElementById("descOutput").innerHTML = "<p>Description:</p> " + changedPost.description;   
+                                }
+                                
+                                if(changedPost.status=="Open"){ 
+                                    currentIMG.src = "img/openlogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently open!";
+                                }
+                                else if(changedPost.status=="Warning"){ 
+                                    currentIMG.src = "img/warninglogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently on a warning!";
+                                }
+                                else if(changedPost.status=="Closed"){ 
+                                    currentIMG.src = "img/closedlogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently closed!";
+                                }
+                                
+                                if(changedPost.status==null){
+                                    document.getElementById("UserMessage").innerHTML = "Current Status not avalable.";
+                                    document.getElementById("descOutput").innerHTML = "";
+                                }
+                                else{       
+                                    document.getElementById("StatusImage").appendChild(currentIMG);
+                                }
                             });
                         </script> 
             </div>
-            
+              
             <div class="maincontent">
                 <div class="header">Admission Information</div>
-                <p>$5.00 for Adults (18 & over) </p><br />
-                <p>$4.00 for Teens (13 to 17) </p><br />
-                <p>$3.00 for Children (< 12) </p><br />
-                <p>Free for Infants Half price admission daily from 4:00 to 7:00pm. Frequent users of Tuhey Pool can save money by purchasing Discount Cards for ten (10) visits.</p>
-            </div>
+                <center>
+                $5.00 for Adults (18 & over) <br /><br />
+                $4.00 for Teens (13 to 17) <br /><br />
+                $3.00 for Children (< 12)<br /><br />
+                Free for Infants.<br/>
+                Half price admission daily from 4:00 to 7:00pm.<br />
+                Frequent users of Tuhey Pool can save money by purchasing Discount Cards for ten (10) visits.   <br /> <br />  
+                </center>
+            </div> <br /> <br /><br /> <br /> 
         </div>
 			
 		</div>
@@ -73,12 +114,11 @@
 
 				<nav>
 					<ul class="cd-primary-nav">
-						<li><a href="login.html">Login</a></li>
-                        <li><a href="index.html">Status</a></li>
-                        <li><a href="Calendar.html">Calendar &amp; Events</a></li> 
-                        <li><a href="Coupons.html">Coupons</a></li>
-        	            <li><a href="AboutUs.html">About Us</a></li>
-                        <li><a href="logout.html">Logout</a></li>
+						<li><a href="#0" class="selected">The team</a></li>
+						<li><a href="#0">Our services</a></li>
+						<li><a href="#0">Our projects</a></li>
+						<li><a href="#0">Start a project</a></li>
+						<li><a href="#0">Contact us</a></li>
 					</ul>
 				</nav>
 			</div><!-- .cd-half-block -->

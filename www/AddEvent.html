@@ -5,12 +5,13 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Merriweather:400,700' rel='stylesheet' type='text/css'>
 
-	<title>Change Status</title>
+	<title>Add Event</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/reset.css">  
+	<link rel="stylesheet" href="css/style.css">  
 	<link rel="stylesheet" href="css/switchstyle.css"> 
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="css/form.css"> 
+	<script src="js/modernizr.js"></script> 
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
@@ -20,43 +21,59 @@
 
 <body>
     
-<main>
-<main>
+<main> 
 	<div class="backgroundcontent">	 
 
-		<div class="content">
-			<div id="introduction">
+		<div class="content"> 
 			<div class="introduction" top="100px">
 		          <div class="header">Add Event</div>
-					 
+					 <center>Enter correct event information and ensure that the date is in the correct format (MM/DD/YYYY), then press Add Event.</center> <br /><br/>
+                
                     <center>
                     <form>
-                        <input type="text" id="nameInput" value="Event Name"></input> <br>
-                        <input type="text" id="dateInput" value="MM/DD/YYYY"></input><br>
-                        <input type="text" id="timeInput" value="Time"></input> <br> 
+                        <input type="text" class="txbx" id="dateInput" value="MM/DD/YYYY" onfocus="if(this.value=='MM/DD/YYYY') this.value='';"></input><br> 
+                        <input type="text" class="txbx" id="nameInput" value="Event Name" onfocus="if(this.value=='Event Name') this.value='';"></input><br> 
+                        <input type="text" class="txbx" id="timeInput" value="Time" onfocus="if(this.value=='Time') this.value='';"></input><br>
+                        <input type="text" class="txbx" id="descInput" value="Description" onfocus="if(this.value=='Description') this.value='';"></input><br>
 
-                        <button onclick="addEvent()">Add Event</button>
-                        <br>
-                        <label id="userMessage" value=""></label>
+                        <button type="button" class="myButton" onclick="ClearFields();">Clear</button>&nbsp;&nbsp;&nbsp;
+                        <button onclick="AddEvent()" class="myButton">Add Event</button> 
+                        <br> 
+                        <TextBox ID="UserMessage" runat="server" onfocus="blur();" BorderStyle="None"></TextBox>
                     </form>
                     </center>
         
                     <script> 
+                        function ClearFields(){
+                            document.getElementById("nameInput").value = "Event Name";
+                            document.getElementById("dateInput").value = "MM/DD/YYYY";
+                            document.getElementById("timeInput").value = "Time";
+                            document.getElementById("descInput").value = "Description";
+                        }
+                        
                         var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/Calendar");
-                        function addEvent() {
+                        
+                        function AddEvent() {
+                            SuccessOutput();
+                            
                             var eventName = document.getElementById("nameInput").value;
                             var dateInput = document.getElementById("dateInput").value;
                             var timeInput = document.getElementById("timeInput").value; 
+                            var descInput = document.getElementById("descInput").value;
 
                             ref.push({
-                                Name: eventName, 
                                 Date: dateInput,
-                                Time: timeInput
-                            });
+                                Name: eventName, 
+                                Time: timeInput,
+                                Description: descInput
+                            }); 
                          } 
+                        
+                        function SuccessOutput() {
+                            document.getElementById("UserMessage").innerHTML = "Success: Event Added!";   
+                        }
                     </script>
-            </div>
-        </div>
+            </div> 
     </div>
 			
   </div>

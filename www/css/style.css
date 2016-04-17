@@ -18,7 +18,7 @@ body, html {
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 63%;
   background-attachment: scroll;
 }
 
@@ -28,12 +28,12 @@ html * {
 }
 
 body {
-  color: #003c5d;
+  color: #fff;
   background-size: auto 100%;
   background-color:#114e85;
   top:0px fixed;
   font-size: 1.5rem;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: "georgia"; 
 }
 
 a {
