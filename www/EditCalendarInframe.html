@@ -36,10 +36,14 @@
 							// value contains {"data":"x", "type":"y"}
 							if(value.Date == date)
 							{
+                                empty = false;
 								var events = document.getElementById("events").innerHTML;
-								events += "<h3>" + value.Name + " at " + value.Time; + "</h3>";
-								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time;
-								empty = false;
+								events += "<h3>" + value.Name + " at " + value.Time;
+                                if(value.Description!=null){
+                                    events += "<br/>Description: " + value.Description;   
+                                }
+                                events += "</h3><a href='#' onclick='DeleteEvent();'>Edit</a> | <a href='#' onclick='DeleteEvent();'>Delete</a>";
+								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time; 
 								document.getElementById("events").innerHTML = events;
                                 document.getElementById("output2").innerHTML = "";
 							}
@@ -56,7 +60,14 @@
 			});
 			
 		});
-
+        
+        function EditEvent(key){
+            
+        }
+        
+        function DeleteEvent(key){
+            
+        }
 	</script> 
 		
 		<!-- End Calender Script -->
@@ -141,7 +152,7 @@
 				</td>
 			</tr>
 	</table>
-    <center> <br />
+    <center> <br /> 
 	<h3 id="output"></h3>
 	<h3 id="output2"><h3>
 	<div id="events">
