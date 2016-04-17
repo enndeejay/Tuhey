@@ -27,7 +27,11 @@
 		<div class="content"> 
 			<div class="introduction" top="100px">
 		          <div class="header">Add Event</div>
-					 <center>Enter correct event information and ensure that the date is in the correct format (MM/DD/YYYY), then press Add Event.</center> <br /><br/>
+					 <center>
+                         <i><a href="Administration.html">Go back to the admin page</a></i><br/> <br/>
+                         
+                         Enter correct event information and ensure that the date is in the correct format (MM/DD/YYYY), then press Add Event.
+                     </center> <br /><br/>
                 
                     <center>
                     <form>
@@ -35,7 +39,6 @@
                         <input type="text" class="txbx" id="nameInput" value="Event Name" onfocus="if(this.value=='Event Name') this.value='';"></input><br> 
                         <input type="text" class="txbx" id="timeInput" value="Time" onfocus="if(this.value=='Time') this.value='';"></input><br>
                         <input type="text" class="txbx" id="descInput" value="Description" onfocus="if(this.value=='Description') this.value='';"></input><br>
-
 
                         <button type="button" class="myButton" onclick="ClearFields();">Clear</button>&nbsp;&nbsp;&nbsp;
                         <button onclick="AddEvent()" class="myButton">Add Event</button> 
@@ -96,11 +99,11 @@
 
 				<nav>
 					<ul class="cd-primary-nav">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="Coupons.html">Coupons</a></li>
-						<li><a href="Calendar.html">Calendar &amp; Events</a></li> 
-						<li><a href="weather.html">Weather</a></li>
-						<li><a href="login.html">Admin</a></li>
+						<li><a href="#0" class="selected">The team</a></li>
+						<li><a href="#0">Our services</a></li>
+						<li><a href="#0">Our projects</a></li>
+						<li><a href="#0">Start a project</a></li>
+						<li><a href="#0">Contact us</a></li>
 					</ul>
 				</nav>
 			</div><!-- .cd-half-block -->
@@ -108,7 +111,7 @@
 			<div class="cd-half-block">
 				<address>
 					<ul class="cd-contact-info">
-						<li><a href="mailto:tjhavens@bsu.edu">whiteriveraquatics@gmail.com</a></li>
+						<li><a href="mailto:tjhavens@bsu.edu">tjhavens@bsu.edu</a></li>
 						<li>(765) 747-4734</li>
 						<li>
 							<span>500 W North St</span>

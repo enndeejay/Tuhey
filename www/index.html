@@ -35,8 +35,8 @@
 			<div class="introduction">
 		          <div class="header">Current Status</div>
                     <center>
-                    **The pool opens and closes based on outdoor weather condition**   
-                    <br/><br/>
+                    **The pool opens and closes based on outdoor weather condition**
+                        <br/><br/>
                     <div id="StatusImage" width="50" height="50"></div>
                     
                     <TextBox ID="condition" runat="server" onfocus="blur();" BorderStyle="None"></TextBox><br/><br/>
@@ -51,7 +51,7 @@
                             ref.on("child_added", function(snapshot) {
                                 var changedPost = snapshot.val();
                                 
-                                if(changedPost.description==null){
+                                if(changedPost.description==null || changedPost.description==""){
                                     document.getElementById("descOutput").innerHTML = "";
                                 }
                                 else{
@@ -71,7 +71,7 @@
                                     document.getElementById("condition").innerHTML = "We are currently closed!";
                                 }
                                 
-                                if(changedPost.status==null){
+                                if(changedPost.status== null){
                                     document.getElementById("UserMessage").innerHTML = "Current Status not avalable.";
                                     document.getElementById("descOutput").innerHTML = "";
                                 }
@@ -84,12 +84,15 @@
               
             <div class="maincontent">
                 <div class="header">Admission Information</div>
-                <p>$5.00 for Adults (18 &amp; over) </p><br />
-                <p>$4.00 for Teens (13 to 17) </p><br />
-                <p>$3.00 for Children (&lt; 12) </p><br />
-                <p>Free for Infants Half price admission daily from 4:00 to 7:00pm. Frequent users of Tuhey Pool can save money by purchasing Discount Cards for ten (10) visits.</p>
-            </div>
-
+                <center>
+                $5.00 for Adults (18 & over) <br /><br />
+                $4.00 for Teens (13 to 17) <br /><br />
+                $3.00 for Children (< 12)<br /><br />
+                Free for Infants.<br/>
+                Half price admission daily from 4:00 to 7:00pm.<br />
+                Frequent users of Tuhey Pool can save money by purchasing Discount Cards for ten (10) visits.   <br /> <br />  
+                </center>
+            </div> <br /> <br /><br /> <br /> 
         </div>
 			
 		</div>
@@ -111,11 +114,11 @@
 
 				<nav>
 					<ul class="cd-primary-nav">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="Coupons.html">Coupons</a></li>
-						<li><a href="Calendar.html">Calendar &amp; Events</a></li> 
-						<li><a href="weather.html">Weather</a></li>
-						<li><a href="login.html">Admin</a></li>
+						<li><a href="#0" class="selected">The team</a></li>
+						<li><a href="#0">Our services</a></li>
+						<li><a href="#0">Our projects</a></li>
+						<li><a href="#0">Start a project</a></li>
+						<li><a href="#0">Contact us</a></li>
 					</ul>
 				</nav>
 			</div><!-- .cd-half-block -->
