@@ -7,11 +7,11 @@
 
 	<title>Change Status</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/reset.css">  
+	<link rel="stylesheet" href="css/style.css">  
 	<link rel="stylesheet" href="css/switchstyle.css"> 
-    <link rel="stylesheet" href="css/radio.css">
-	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="css/form.css"> 
+	<script src="js/modernizr.js"></script> 
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
@@ -24,45 +24,40 @@
 <main>
 	<div class="backgroundcontent">	 
 
-		<div class="content">
-			<div id="introduction">
+		<div class="content"> 
 			<div class="introduction" top="100px">
 				<div class="header">Change Status</div>
-				<center><i>Insert instructions for admin</i> </center> <br /> 
-			</div>
-			</div>
+				    <center>Select the current status of Tuhey Pool and press the Change Status button. Description is optional.</center> <br /><br/>
+                
+                    <form align="center"> 
+                        <input type="radio" name="status" id="Open" class="hide-checkbox" checked>
+                        <label for="Open">Open</label>
 
-			<div id="home">
-			<div class="maincontent">
-		
-				<form align="center">
-                    <div id="radio">
-                        <input type="radio" name="radio" value="open" class="radio" checked />
-                        <label for="open">Open</label>
-                    </div>
-                    
-                    <div id="radio">
-                        <input type="radio" name="radio" value="warning" class="radio"/>
-                        <label for="warning">Warning</label>
-                    </div>
+                        <input type="radio" name="status" id="Warning" class="hide-checkbox">
+                        <label for="Warning">Warning</label>
 
-                    <div id="radio">	
-                        <input type="radio" name="radio" value="closed" class="radio"/>
-                        <label for="closed">Closed</label>
-                    </div>
-<br /><br /><br />
-						<form>
-                        <input type="radio" name="status" value="open">Open <br>
-                        <input type="radio" name="status" value="closed">Closed <br>
-                        <input type="radio" name="status" value="warning">Warning <br>
-                        <input type="text" id="description">
-                        <input id="submit" type="button" value="submit" onclick="submitStatus()"> <br>
-                        </form>
-                        
+                        <input type="radio" name="status" id="Closed" class="hide-checkbox">
+                        <label for="Closed">Closed</label> <br/> <br/> <br/> 
+
+                        <input type="text" id="description" class="txbx" value="Description" onfocus="if(this.value=='Description') this.value='';"></input> <br /> 
+                        <input id="submit" class="myButton" type="button" value="Change Status" onclick="SubmitStatus()"> <br /><br />
+                        <TextBox ID="UserMessage" runat="server" onfocus="blur();" BorderStyle="None"></TextBox>
+
                         <script>
+                            [].forEach.call( document.querySelectorAll('.hide-checkbox'), function(element) {
+                                element.style.display = 'none';
+                            });
+
                             var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/");
                             var statusRef = ref.child("status");
-                            function submitStatus() {
+                            function SubmitStatus() {
+                                SuccessOutput();
+                                desc = document.getElementById("description").value;
+                                
+                                if(desc=="Description" || ""){
+                                    desc=null;
+                                }
+                                
                                 var tempStatus;
                                 var desc;
                                 var radios = document.getElementsByName("status");
@@ -70,24 +65,25 @@
                                     if(radios[i].checked) {
                                         tempStatus = radios[i].id;
                                     }
-                                    desc = document.getElementById("description").value;
                                 }
 
                                 statusRef.set({
                                     status: tempStatus,
                                     description: desc
                                 });
+                                
+                            }
+                            
+                            function SuccessOutput() {
+                                document.getElementById("UserMessage").innerHTML = "Success: Status Changed!";   
                             }
                         </script>
-                         
-				</form>
 
-				</div>
-			</div>
-
-			
-		</div>
-	</main>
+                    </form>
+            </div>
+        </div>  
+    </div>
+</main>
 
 
 	<a href="#cd-nav" class="cd-nav-trigger">Menu 
@@ -105,11 +101,11 @@
 
 				<nav>
 					<ul class="cd-primary-nav">
-						<li><a href="login.html" class="selected">Login</a></li>
-						<li><a href="index.html">Status</a></li>
-						<li><a href="Calendar.html">Calendar &amp; Events</a></li>
-						<li><a href="Coupons.html">Coupons</a></li>
-						<li><a href="AboutUs.html">About Us</a></li>
+						<li><a href="#0" class="selected">The team</a></li>
+						<li><a href="#0">Our services</a></li>
+						<li><a href="#0">Our projects</a></li>
+						<li><a href="#0">Start a project</a></li>
+						<li><a href="#0">Contact us</a></li>
 					</ul>
 				</nav>
 			</div><!-- .cd-half-block -->
