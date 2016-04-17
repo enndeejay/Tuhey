@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+	<title>Change Status</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/switchstyle.css"> 
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/main.js"></script> 
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    
+
+</head>
+
+<body>
+    
+<main>
+    
+	<div class="background"><br/>
+        <h1>Welcome to Tuhey Pool!</h1>
+		<h2>
+            <b>General Admission Hours</b><br/>
+            Monday though Friday: 7AM to 7PM<br/>
+            Saturday and Sunday: Noon to 7PM
+        </h2><br/>
+        
+		<div class="introbox"> 
+			<div class="introduction">
+		          <div class="header">Current Status</div>
+                    <center>
+                    **The pool opens and closes based on outdoor weather condition**
+                        <br/><br/>
+                    <div id="StatusImage" width="50" height="50"></div>
+                    
+                    <TextBox ID="condition" runat="server" onfocus="blur();" BorderStyle="None"></TextBox><br/><br/>
+                    <TextBox ID="descOutput" runat="server" onfocus="blur();" BorderStyle="None"></TextBox> 
+                    
+                    <br/><br />
+                        
+                        <script>
+                            var currentIMG = document.createElement("IMG"); 
+                            
+                            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/");   
+                            ref.on("child_added", function(snapshot) {
+                                var changedPost = snapshot.val();
+                                
+                                if(changedPost.description==null){
+                                    document.getElementById("descOutput").innerHTML = "";
+                                }
+                                else{
+                                    document.getElementById("descOutput").innerHTML = "<p>Description:</p> " + changedPost.description;   
+                                }
+                                
+                                if(changedPost.status=="Open"){ 
+                                    currentIMG.src = "img/openlogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently open!";
+                                }
+                                else if(changedPost.status=="Warning"){ 
+                                    currentIMG.src = "img/warninglogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently on a warning!";
+                                }
+                                else if(changedPost.status=="Closed"){ 
+                                    currentIMG.src = "img/closedlogo.gif";
+                                    document.getElementById("condition").innerHTML = "We are currently closed!";
+                                }
+                                
+                                if(changedPost.status==null){
+                                    document.getElementById("UserMessage").innerHTML = "Current Status not avalable.";
+                                    document.getElementById("descOutput").innerHTML = "";
+                                }
+                                else{       
+                                    document.getElementById("StatusImage").appendChild(currentIMG);
+                                }
+                            });
+                        </script> 
+            </div>
+              
+            <div class="maincontent">
+                <div class="header">Admission Information</div>
+                <center>
+                $5.00 for Adults (18 & over) <br /><br />
+                $4.00 for Teens (13 to 17) <br /><br />
+                $3.00 for Children (< 12)<br /><br />
+                Free for Infants.<br/>
+                Half price admission daily from 4:00 to 7:00pm.<br />
+                Frequent users of Tuhey Pool can save money by purchasing Discount Cards for ten (10) visits.   <br /> <br />  
+                </center>
+            </div> <br /> <br /><br /> <br /> 
+        </div>
+			
+		</div>
+	</main>
+
+
+	<a href="#cd-nav" class="cd-nav-trigger">Menu 
+		<span class="cd-nav-icon"></span>
+
+		<svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+			<circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+		</svg>
+	</a>
+	
+	<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Navigation</h2>
+
+				<nav>
+					<ul class="cd-primary-nav">
+						<li><a href="#0" class="selected">The team</a></li>
+						<li><a href="#0">Our services</a></li>
+						<li><a href="#0">Our projects</a></li>
+						<li><a href="#0">Start a project</a></li>
+						<li><a href="#0">Contact us</a></li>
+					</ul>
+				</nav>
+			</div><!-- .cd-half-block -->
+			
+			<div class="cd-half-block">
+				<address>
+					<ul class="cd-contact-info">
+						<li><a href="mailto:whiteriveraquatics@gmail.com">whiteriveraquatics@gmail.com</a></li>
+						<li>(765) 747-4734</li>
+						<li>
+							<span>500 W North St</span>
+							<span>Muncie, IN 47308</span>
+						</li>
+					</ul>
+				</address>
+			</div> <!-- .cd-half-block -->
+		</div> <!-- .cd-navigation-wrapper -->
+	</div> <!-- .cd-nav -->
+
+</body>
+</html>
