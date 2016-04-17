@@ -31,22 +31,14 @@ body {
 .app {
     position:absolute;             /* position in the center of the screen */
     left:40%;
-    top:12%;
+    top:20%;
     height:300px;                   /* text area height */
     width:300px;                   /* text area width */
     font-family:'Source Sans Pro';
     text-align:center;
     padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
     margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */                          /* offset horizontal: half of text area width */
-}
-
-.logo {
-	position:absolute;
-	width:400%;
-	left:30%;
-	top:0%;
-	height:400%;
-}
+} 
 
 .app1 {
     position:absolute;             /* position in the center of the screen */
@@ -155,7 +147,7 @@ ul, li {
 }
 
 #container {
-    width:400px;
+    width:200px;
     padding:0px;
     background:#fefefe;
     margin:0 auto;
@@ -223,7 +215,7 @@ label {
     bottom:110px;
     bottom: -115px\9; /* IE Specific */
     right:55px;
-    width:250px;
+    width:100px;
     padding:15px;
     background:#fefefe;
     font-size:.875em;
@@ -248,96 +240,4 @@ label {
     color:#ddd;
     text-shadow:none;
     display:block;
-}
-
-.invalid {
-    background:url(../img/cancel.png) no-repeat 0 50%;
-    padding-left:22px;
-    line-height:24px;
-    color:#ec3f41;
-}
-
-.valid {
-    background:url(../img/accept.png) no-repeat 0 50%;
-    padding-left:22px;
-    line-height:24px;
-    color:#3a7d34;
-}
-
-#pswd_info {
-    display:none;
-}
-
-.sunset {
-	width:50%;
-	height:50%;
-	position: center;	
-}
-
-.forgot {
-	border: 2px solid black;
-	margin: 15px 15px 15px 15px;
-}
-
-.blink0 {
-    animation:fade 1500ms infinite;
-    -webkit-animation:fade 1500ms infinite;
-    text-align:center;
-    width:100%;
-    bottom:100px;
-    position:absolute;
-	
-}
-
-.loading {
-  box-sizing: border-box;
-  position: relative;
-  display: inline-block;
-  padding: 0.5em;
-  vertical-align: middle;
-  text-align: center;
-  background-color: transparent;
-  border: 5px solid transparent;
-  border-top-color: #c22;
-  border-bottom-color: #c22;
-  border-radius: 50%;
-  top:50%;
-}
-
-.outer {
-  animation: spin 1s infinite;
-}
-
-.inner {
-  animation: spin 1s infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
-
-#wrap {
-  box-sizing: border-box;
-  display: absolute;
-  vertical-align: middle;
-}
-
-body {
-	text-align: center;
-	display: table;
-	width: 100%;
-	height: 100%;
-	overflow-x: hidden;
-	overflow-y: hidden;
-}
- html {
-	width: 100%;
-	height: 100%;
-	background: radial-gradient(circle, #fff 0%, #aaa 100%) no-repeat;
-	overflow-x: hidden;
-	overflow-y: hidden;
 }
