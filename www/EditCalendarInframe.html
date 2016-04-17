@@ -43,7 +43,7 @@
                                 if(value.Description!=null){
                                     events += "<br/>Description: " + value.Description;   
                                 }
-                                events += "</h3><a href='#' onclick='DeleteEvent();'>Edit</a> | <a href='#' onclick='DeleteEvent();'>Delete</a>";
+                                events += "</h3><a href='#' onclick='EditEvent(\"" + index + "\",\"" + value.Name +"\",\"" + value.Time + "\",\"" + value.Description + "\",\"" + value.Date + "\");'>Edit</a> | <a href='#' onclick='DeleteEvent(\"" + index + "\");'>Delete</a>";
 								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time; 
 								document.getElementById("events").innerHTML = events;
                                 document.getElementById("output2").innerHTML = "";
@@ -62,13 +62,51 @@
 			
 		});
         
-        function EditEvent(key){
-            
+		
+        function EditEvent(key, event, time, description, date){
+			DeleteEvent(key);
+			document.getElementById("events").innerHTML = "";
+			var events = "";
+			
+			events += "<input type=\"text\" class=\"txbx\" id=\"nameInput\" value=\"" + event +"\" onfocus=\"if(this.value=='Event Name') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"timeInput\" value=\"" + time +"\" onfocus=\"if(this.value=='Time') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"descInput\" value=\"" + description +"\" onfocus=\"if(this.value=='Description') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"dateInput\" value=\"" + date +"\" onfocus=\"if(this.value=='Date') this.value='';\"></input><br>";
+			events += "<button onclick=\"AddEvent()\" class=\"myButton\">Update Event</button>";
+			
+			
+			document.getElementById("events").innerHTML = events;
+			
+			
+			
         }
         
         function DeleteEvent(key){
-            
+            var fredRef = new Firebase('https://burning-inferno-4114.firebaseio.com/Calendar/' + key);
+			fredRef.remove();
+			document.getElementById("events").innerHTML = "<h3>Selected Events Removed<h3>";
         }
+		
+		function AddEvent(){
+		
+		
+            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/Calendar");               
+			var date = document.getElementById("dateInput").value;
+			var name = document.getElementById("nameInput").value;
+			var time = document.getElementById("timeInput").value; 
+			var desc = document.getElementById("descInput").value;
+			
+			ref.push({
+				Date: date,
+				Name: name, 
+				Time: time,
+				Description: desc
+			}); 
+			document.getElementById("events").innerHTML = "<h3>Event Edited</h3>";
+		
+		}
+		
+		
 	</script> 
 		
 		<!-- End Calender Script -->
@@ -146,6 +184,8 @@
 <center> 
 <i><a target="_parent" href="Administration.html">Go back to the admin page</a></i><br/><br/>
                 Select the date that your desired event is on. Under your event, you are able to edit or delete said event.</center> <br /><br/>
+
+
 	
 	<table>
 			<tr>
