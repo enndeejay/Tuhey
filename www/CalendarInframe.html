@@ -25,9 +25,8 @@
 			$( "#datepicker-1" ).datepicker({
 			
 				onSelect: function (date) {
-					var date = $(this).val();
-					document.getElementById("output").innerHTML = date;
-					
+					var date = $(this).val(); 
+                    
 					$.getJSON('https://burning-inferno-4114.firebaseio.com/Calendar.json', function(data) {
 						 
 						var empty = true;
@@ -37,17 +36,17 @@
 							if(value.Date == date)
 							{
 								var events = document.getElementById("events").innerHTML;
-								events += "<h3>" + value.Name + " at " + value.Time; + "</h3>";
+								events += "<h3>" + value.Name + "  |  " + value.Time + "<br/>Description: " + value.Description + "</h3><br />";
 								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time;
 								empty = false;
 								document.getElementById("events").innerHTML = events;
-                                document.getElementById("output2").innerHTML = "";
+                                document.getElementById("UserOutput").innerHTML = "";
 							}
 						});
 						if(empty)
 						{
 							document.getElementById("events").innerHTML = "";
-                            document.getElementById("output2").innerHTML = "No Events";
+                            document.getElementById("UserOutput").innerHTML = "No Events";
 						}
 					});
 					
@@ -141,9 +140,8 @@
 				</td>
 			</tr>
 	</table>
-    <center> <br />
-	<h3 id="output"></h3>
-	<h3 id="output2"><h3>
+    <center> <br /> 
+	<h3 id="UserOutput"><h3>
 	<div id="events">
     </center>
 </main>
