@@ -36,35 +36,18 @@ body {
     width:300px;                   /* text area width */
     font-family:'Source Sans Pro';
     text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */                          /* offset horizontal: half of text area width */
+    padding-top:60px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:0px 0px 0px -100px;  /* offset vertical: half of image height and text area height */                          /* offset horizontal: half of text area width */
 } 
-
-.app1 {
-    position:absolute;             /* position in the center of the screen */
-    left:40%;
-    top:25%;
-    height:300px;                   /* text area height */
-    width:300px;                   /* text area width */
-    font-family:'Source Sans Pro';
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */                          /* offset horizontal: half of text area width */
-}
-
-.logo1 {
-	position:absolute;
-	width:400%;
-	left:30%;
-	top:10%;
-	height:400%;
-}
+ 
+ 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
         background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+        padding:75px 0px 75px;  /* padding-top + padding-bottom + text area = image height */
+        margin-left: auto;
+        margin-right: auto;/* offset vertical: half of image height */
                                       /* offset horizontal: half of image width and text area width */
     }
 }
@@ -172,8 +155,7 @@ h1 {
 }
 
 form ul li {
-    margin:10px 20px;
-
+    margin:10px;
 }
 
 form ul li:last-child {
@@ -182,11 +164,11 @@ form ul li:last-child {
 }
 
 input {
-    padding:10px 10px;
+    padding:10px;
     border:1px solid #d5d9da;
     border-radius:5px;
     box-shadow: 0 0 5px #e8e9eb inset;
-    width:328px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+    width:250px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
     font-size:1em;
     outline:0; /* remove webkit focus styles */
 }
@@ -204,7 +186,7 @@ label {
 
 #container span {
     background:#f6f6f6;
-    padding:3px 5px;
+    padding:3px;
     display:block;
     border-radius:5px;
     margin-top:5px;
@@ -234,7 +216,6 @@ label {
     content: "\25B2";
     position:absolute;
     top:-12px;
-    left:45%;
     font-size:14px;
     line-height:14px;
     color:#ddd;
