@@ -11,14 +11,13 @@
         <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
     </head>
     <body>
-    <center>
-    <img src="img/logo.png" height="200px" width="200px"></img>
-    </center><br /> <br />
+    <center><br/> 
+    <img src="img/logo.png" height="50%" width="50%"></img>
+    </center>
         <div class="app">
-           <p>Welcome to Connecting Tuhey Pool Mobile:<br><strong>Administrative Mode</strong></p>
+           <p>Welcome to Connecting Tuhey Pool Mobile:<br/><strong>Administrative Mode</strong></p>
         <div id="deviceready" class="blink">
-            <p class="event listening">Please Log In Below!</p><br>
-            <p class="event received">Thank you for logging in! One moment please...</p>
+            <p class="event listening">Please Log In Below!</p><br> 
 		</div>
 	    <form name="login">
             Username:<input type="text" name="userid"/>
@@ -31,15 +30,14 @@
         <script language="javascript">
             function check(form) { /*function to check userid & password*/
                 /*the following code checkes whether the entered userid and password are matching*/
-                if(form.userid.value == "whiteriveraquatics@gmail.com" && form.pswrd.value == "abc123") {
+                if(form.userid.value.toUpperCase() == "WHITERIVERAQUATICS" && form.pswrd.value.toUpperCase() == "ABC123") {
                     window.open('Administration.html')/*opens the target page while Id & password matches*/
                 }
                 else {
                     alert("Login Error: Wrong Username or Password Combination!")/*displays error message*/
                 }
             }
-        </script> 
-	<script type="text/javascript" src="cordova.js"></script>
+        </script>  
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="js/jquery.fblogin.js"></script>
 </body>

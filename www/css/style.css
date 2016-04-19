@@ -75,7 +75,7 @@ img {
 }
 
 .background {
-  padding-top:35%;
+  padding-top:30%;
   background-attachment: scroll;
   background-color: #114e85;
   background-image: url(../img/background.jpg); 
@@ -157,6 +157,14 @@ main content basic style
   padding:10px;
   color:#ffffff;
   border:1px #00000;
+}
+
+iframe{
+    margin-top: 160px;
+    align-self: center;
+    display: block;
+    margin-left: 5%;
+    width: 90%;  
 }
 
 /* -------------------------------- 

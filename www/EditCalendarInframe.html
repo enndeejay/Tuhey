@@ -39,11 +39,11 @@
 							{
                                 empty = false;
 								var events = document.getElementById("events").innerHTML;
-								events += "<h3>" + value.Name + " at " + value.Time;
+								events += "<h3>" + value.Name + " -- " + value.Time;
                                 if(value.Description!=null){
                                     events += "<br/>Description: " + value.Description;   
                                 }
-                                events += "</h3><a href='#' onclick='EditEvent(\"" + index + "\",\"" + value.Name +"\",\"" + value.Time + "\",\"" + value.Description + "\",\"" + value.Date + "\");'>Edit</a> | <a href='#' onclick='DeleteEvent(\"" + index + "\");'>Delete</a>";
+                                events += "</h3><a href='#' onclick='EditEvent(\"" + index + "\",\"" + value.Name +"\",\"" + value.Time + "\",\"" + value.Description + "\",\"" + value.Date + "\");'>Edit</a> | <a href='#' onclick='DeleteEvent(\"" + index + "\");'>Delete</a><br/><br/>";
 								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time; 
 								document.getElementById("events").innerHTML = events;
                                 document.getElementById("output2").innerHTML = "";
@@ -172,7 +172,7 @@
             }
             
             a {
-              color:firebrick;  
+              color:darksalmon;  
             }
 		</style>
 		
