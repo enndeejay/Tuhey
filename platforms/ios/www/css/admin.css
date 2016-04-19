@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+ul.adminnav {
+    list-style-position: inside;
+    border: solid 2px #fff;
+    border-radius: 25px;  
+    width: 80%;
+    background-color:#555; 
+    overflow: hidden; 
+    text-align:center; 
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;     
+    
+}
+li.adminnav-sub {
+    font-weight: 400; 
+    display: block;
+    color: #fff;
+    margin: 5px 0 5px 0px;
+    text-decoration: none;   
+}
+
+li.adminnav-sub a {
+    font-weight: 400; 
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px;    
+}

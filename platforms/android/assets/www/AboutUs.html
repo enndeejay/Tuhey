@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,700|Merriweather:400,700' rel='stylesheet' type='text/css'>
+
+	<title>Coupons</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+	<link rel="stylesheet" href="css/switchstyle.css"> 
+	<script src="js/modernizr.js"></script> <!-- Modernizr -->
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="js/main.js"></script> 
+    
+    <style>
+      #map {
+        width: 300px;
+        height: 300px; 
+      }
+    </style>
+    <script>  
+  	function initMap() {
+    	var mapDiv = document.getElementById('map');
+    	var map = new google.maps.Map(mapDiv, {
+      		center: {lat: 40.196539, lng: -85.391450},
+      		zoom: 17
+    });
+  }
+	</script>	
+ 	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+         async defer></script> 
+</head>
+
+<body>
+
+<main>
+	<div class="backgroundcontent">	 
+
+		<div class="content"> 
+			<div class="introduction" top="100px">
+				<div class="header">White River Aquatics</div><center> 
+                <p>At White River Aquatics, our mission is twofold:</p>
+                <ol>
+                <li>To operate Tuhey Pool in a safe, family friendly and fiscally sound environment for the City of Muncie; and</li><br/>
+                <li>To develop a feasibility study determining the viability of an indoor 50 meter aquatic swimming pool.</li></ol><br /><br/>
+                As operators of Tuhey Pool for the City of Muncie, White River Aquatics would like to welcome you back for another successful swim season at our heated outdoor 50 meter community swimming pool located at beautiful Tuhey Park.<br/>
+                Nestled in the heart of the city and among 60 miles of bike and hiking trails, we are  hosts for the annual Muncie Mayors Meet and Drool in the Pool.<br /><br/>
+                <img src="img/logo.png" width="100px" height="100px"></img>
+                <p>Tuhey Pool is located at 8.5 acre Tuhey Park located in the Heart of the City, just north of Downtown and a mile from <a href="http://cms.bsu.edu/">Ball State University</a> campus. </p> <p>The pool is open from May to September. Along the south side of the park is a connection to over 60 miles of biking trails known as the <a href="http://cardinalgreenways.org/">Cardinal Creenways.</a></p>
+                <br/><br/>
+                <a href="http://www.tuheypool.com/">Click here for more information!</a></center>
+			</div> 
+ 
+			<div class="maincontent"> 
+				<div class="header">Purpose</div> <center>
+				<p>White River Aquatics is a 501(c)3 non-profit corporation formed in 2010 to pursue an indoor year round aquatics center serving all the aquatic needs of Delaware County. According to U.S.A. Swimming experts, a successful aquatic center will serve the following four community pillars:
+                <ol>
+                    <li>1. Recreational</li>
+                    <li>2. Competitive</li>
+                    <li>3. Swim Lessons</li>
+                    <li>4. Therapeutic</li>
+                </ol>
+                <br />
+                In 2013, we entered into a contract with the <a href="http://www.cityofmuncie.com/">City of Muncie</a> to manage our communities outdoor 50 meter swimming pool which currently serves three of the four main pillars during the summer season with recreational swimming, hosting the Muncie Mayors Meet and providing lap swimming for area swim clubs and Masters swimmers. Through our partnership with Cardinal Swim Club, swim lessons are offered to children of all ages.
+                </center>
+			</div>
+
+			<div class="maincontent">
+                <div class="header">Location</div><center>
+                <div id="map"></div>
+                <br><br> </center>
+            </div>
+		</div>
+	</main>
+
+
+	<a href="#cd-nav" class="cd-nav-trigger">Menu 
+		<span class="cd-nav-icon"></span>
+
+		<svg x="0px" y="0px" width="54px" height="54px" viewBox="0 0 54 54">
+			<circle fill="transparent" stroke="#656e79" stroke-width="1" cx="27" cy="27" r="25" stroke-dasharray="157 157" stroke-dashoffset="157"></circle>
+		</svg>
+	</a>
+	
+	<div id="cd-nav" class="cd-nav">
+		<div class="cd-navigation-wrapper">
+			<div class="cd-half-block">
+				<h2>Navigation</h2>
+
+				<nav>
+					<ul class="cd-primary-nav">
+						<li><a href="index.html">Home</a></li>
+                        <li><a href="AboutUs.html">About Us</a></li>
+                        <li><a href="Calendar.html">Calendar &amp; Events</a></li>
+						<li><a href="Coupons.html">Coupons</a></li>
+						<li><a href="weather.html">Weather</a></li>
+						<li><a href="FAQ.html">FAQ</a></li><br />
+					</ul>
+				</nav>
+			</div><!-- .cd-half-block -->
+			
+			<div class="cd-half-block">
+				<address>
+					<ul class="cd-contact-info">
+						<li> 
+                        <a class="email" href="#" onclick="javascript:window.location='mailto:whiteriveraquatics@gmail.com?subject=Tuhey Pool';">whiteriveraquatics@gmail.com</a>
+                        </li>
+						<li>(765) 747-4734</li>
+						<li>
+							<span>500 W North St</span>
+							<span>Muncie, IN 47308</span>
+						</li><br />
+					</ul>
+                    <ul class="cd-primary-nav">
+                        <li><a href="Login.html">Admin</a></li>
+                    </ul>
+				</address>
+			</div> <!-- .cd-half-block -->
+		</div> <!-- .cd-navigation-wrapper -->
+	</div> <!-- .cd-nav -->
+
+</body>
+</html>

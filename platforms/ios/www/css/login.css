@@ -1,0 +1,214 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    max-width: 100%;
+    overflow-x: hidden;
+    background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    background-image:-webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0, #A7A7A7),
+        color-stop(0.51, #E4E4E4));
+    background-attachment:fixed;
+    font-family:'Source Sans Pro';
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+
+}
+/* Portrait layout (default) */
+.app {
+    display:block:
+    position: absolute;  
+    height:300px;                
+    width:80%;                  
+    font-family:'Source Sans Pro';
+    text-align:center; 
+    margin-left:auto;
+    margin-right: auto;
+} 
+ 
+ 
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px;  /* padding-top + padding-bottom + text area = image height */
+        margin-left: auto;
+        margin-right: auto;/* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+ 
+ .groove {
+ 	p.groove {border-style: groove;}
+ }
+
+.event {
+    font-family:'Source Sans Pro';
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    font-family:'Source Sans Pro';
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    font-family:'Source Sans Pro';
+    background-color:#4B946A;
+    display:none;
+}
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+body {
+    background:#edf1f4 url(bg.jpg);
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+    font-size:16px;
+    color:#444;
+}
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+body {
+    background:#edf1f4 url(bg.jpg);
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+    font-size:16px;
+    color:#444;
+}
+
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+#container {
+    width:200px;
+    padding:0px;
+    background:#fefefe;
+    margin:0 auto;
+    border:1px solid #c4cddb;
+    border-top-color:#d3dbde;
+    border-bottom-color:#bfc9dc;
+    box-shadow:0 1px 1px #ccc;
+    border-radius:5px;
+    position:relative;
+}
+
+h1 {
+    margin:0;
+    padding:10px 0;
+    font-size:24px;
+    text-align:center;
+    background:#eff4f7;
+    border-bottom:1px solid #dde0e7;
+    box-shadow:0 -1px 0 #fff inset;
+    border-radius:5px 5px 0 0;
+    text-shadow:1px 1px 0 #fff;
+}
+
+form ul li {
+    margin:10px;
+}
+
+form ul li:last-child {
+    text-align:center;
+    margin:20px 0 25px 0;
+}
+
+input {
+    padding:10px;
+    border:1px solid #d5d9da;
+    border-radius:5px;
+    box-shadow: 0 0 5px #e8e9eb inset;
+    width:250px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+    font-size:1em;
+    outline:0; /* remove webkit focus styles */
+}
+
+input:focus {
+    border:1px solid #b9d4e9;
+    border-top-color:#b6d5ea;
+    border-bottom-color:#b8d4ea;
+    box-shadow:0 0 5px #b9d4e9;    
+}
+
+label {
+    color:#555;
+}
+
+#container span {
+    background:#f6f6f6;
+    padding:3px;
+    display:block;
+    border-radius:5px;
+    margin-top:5px;
+}
+
+#pswd_info {
+    position:absolute;
+    bottom:110px;
+    bottom: -115px\9; /* IE Specific */
+    right:55px;
+    width:100px;
+    padding:15px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+}
+
+#pswd_info h4 {
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+}
+
+#pswd_info::before {
+    content: "\25B2";
+    position:absolute;
+    top:-12px;
+    font-size:14px;
+    line-height:14px;
+    color:#ddd;
+    text-shadow:none;
+    display:block;
+}
