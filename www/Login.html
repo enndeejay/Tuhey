@@ -30,7 +30,7 @@
         <script language="javascript">
             function check(form) { /*function to check userid & password*/
                 /*the following code checkes whether the entered userid and password are matching*/
-                if(form.userid.value == "whiteriveraquatics" && form.pswrd.value == "abc123") {
+                if(form.userid.value.toUpperCase() == "WHITERIVERAQUATICS" && form.pswrd.value.toUpperCase() == "ABC123") {
                     window.open('Administration.html')/*opens the target page while Id & password matches*/
                 }
                 else {
