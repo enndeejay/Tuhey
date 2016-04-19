@@ -50,16 +50,16 @@
   <icon src="/www/img/logo.png" gap:platform="webos"/>
   <icon src="/www/img/logo.png" gap:platform="winphone"/>
   <icon src="/www/img/logo.png" gap:platform="winphone" gap:role="background"/>
-  <gap:splash src="www/res/screen/android/screen-ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi"/>
-  <gap:splash src="www/res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi"/>
-  <gap:splash src="www/res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi"/>
-  <gap:splash src="www/res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
+  <gap:splash src="/www/img/android.png" gap:platform="android" gap:qualifier="port-ldpi"/>
+  <gap:splash src="/www/img/android.png" gap:platform="android" gap:qualifier="port-mdpi"/>
+  <gap:splash src="/www/img/android.png" gap:platform="android" gap:qualifier="port-hdpi"/>
+  <gap:splash src="/www/img/android.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
   <gap:splash src="/www/img/logo.png" gap:platform="blackberry"/>
-  <gap:splash src="splash.gif" gap:platform="ios" width="320" height="480"/>
-  <gap:splash src="www/splash.gif" gap:platform="ios" width="640" height="960"/>
-  <gap:splash src="www/splash.gif" gap:platform="ios" width="640" height="1136"/>
-  <gap:splash src="www/splash.gif" gap:platform="ios" width="768" height="1024"/>
-  <gap:splash src="www/splash.gif" gap:platform="ios" width="1024" height="768"/>
+  <gap:splash src="/www/img/iOS.png" gap:platform="ios" width="320" height="480"/>
+  <gap:splash src="/www/img/iOS.png" gap:platform="ios" width="640" height="960"/>
+  <gap:splash src="/www/img/iOS.png" gap:platform="ios" width="640" height="1136"/>
+  <gap:splash src="/www/img/iOS.png" gap:platform="ios" width="768" height="1024"/>
+  <gap:splash src="/www/img/iOS.png" gap:platform="ios" width="1024" height="768"/>
   <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" width="480" height="800" gap:platform="winphone"/>
   <access origin="*"/>
   <plugin name="cordova-plugin-whitelist" version="1"/>

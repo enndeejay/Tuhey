@@ -39,18 +39,6 @@ body {
     margin-right: auto;
 } 
  
- 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px;  /* padding-top + padding-bottom + text area = image height */
-        margin-left: auto;
-        margin-right: auto;/* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
-    }
-}
- 
  .groove {
  	p.groove {border-style: groove;}
  }
