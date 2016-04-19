@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<style>p.groove {border-style: groove;}</style>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <title>Connecting Tuhey Pool</title>       
+        <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    </head>
+    <body>
+    <center>
+    <img src="img/logo.png" height="200px" width="200px"></img>
+    </center><br /> <br />
+        <div class="app">
+           <p>Welcome to Connecting Tuhey Pool Mobile:<br><strong>Administrative Mode</strong></p>
+        <div id="deviceready" class="blink">
+            <p class="event listening">Please Log In Below!</p><br>
+            <p class="event received">Thank you for logging in! One moment please...</p>
+		</div>
+	    <form name="login">
+            Username:<input type="text" name="userid"/>
+            Password:<input type="password" name="pswrd"/>
+            <br><br>
+            <input type="button" onclick="check(this.form)" value="Login"/>
+            <br><br>
+            <input type="reset" onclick="location.href = 'index.html';" value="Cancel"/>
+        </form>
+        <script language="javascript">
+            function check(form) { /*function to check userid & password*/
+                /*the following code checkes whether the entered userid and password are matching*/
+                if(form.userid.value == "whiteriveraquatics@gmail.com" && form.pswrd.value == "abc123") {
+                    window.open('Administration.html')/*opens the target page while Id & password matches*/
+                }
+                else {
+                    alert("Login Error: Wrong Username or Password Combination!")/*displays error message*/
+                }
+            }
+        </script> 
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/jquery.fblogin.js"></script>
+</body>
+</html>
