@@ -25,14 +25,14 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
-
 }
+
 /* Portrait layout (default) */
 .app {
     display:block:
     position: absolute;  
     height:300px;                
-    width:80%;                  
+    width:90%;                  
     font-family:'Source Sans Pro';
     text-align:center; 
     margin-left:auto;
@@ -88,6 +88,7 @@ body {
     font-size:16px;
     color:#444;
 }
+
 ul, li {
     margin:0;
     padding:0;
@@ -95,20 +96,22 @@ ul, li {
 }
 
 body {
+    font-size:2em;
     background:#edf1f4 url(bg.jpg);
-    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
-    font-size:16px;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif; 
     color:#444;
 }
 
 ul, li {
+    font-size:2em;
     margin:0;
     padding:0;
     list-style-type:none;
 }
 
 #container {
-    width:200px;
+    font-size:2em;
+    width:80%;
     padding:0px;
     background:#fefefe;
     margin:0 auto;
@@ -123,7 +126,7 @@ ul, li {
 h1 {
     margin:0;
     padding:10px 0;
-    font-size:24px;
+    font-size:2em;
     text-align:center;
     background:#eff4f7;
     border-bottom:1px solid #dde0e7;
@@ -134,10 +137,12 @@ h1 {
 
 form ul li {
     margin:10px;
+    font-size:2em;
 }
 
 form ul li:last-child {
     text-align:center;
+    font-size:2em;
     margin:20px 0 25px 0;
 }
 
@@ -146,8 +151,8 @@ input {
     border:1px solid #d5d9da;
     border-radius:5px;
     box-shadow: 0 0 5px #e8e9eb inset;
-    width:250px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
-    font-size:1em;
+    width:80%; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+    font-size:1.75em;
     outline:0; /* remove webkit focus styles */
 }
 
