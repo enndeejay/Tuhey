@@ -29,15 +29,14 @@ body {
 }
 /* Portrait layout (default) */
 .app {
-    position:absolute;             /* position in the center of the screen */
-    left:40%;
-    top:20%;
-    height:300px;                   /* text area height */
-    width:300px;                   /* text area width */
+    display:block:
+    position: absolute;  
+    height:300px;                
+    width:80%;                  
     font-family:'Source Sans Pro';
-    text-align:center;
-    padding-top:60px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:0px 0px 0px -100px;  /* offset vertical: half of image height and text area height */                          /* offset horizontal: half of text area width */
+    text-align:center; 
+    margin-left:auto;
+    margin-right: auto;
 } 
  
  
@@ -51,16 +50,7 @@ body {
                                       /* offset horizontal: half of image width and text area width */
     }
 }
-
-h1 {
-    font-family:'Source Sans Pro';
-    font-size:24px;
-    font-weight:normal;
-    margin:0px;
-    overflow-x: hidden;
-    padding:0px;
-    text-align:center;
-}
+ 
  .groove {
  	p.groove {border-style: groove;}
  }

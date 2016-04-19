@@ -159,6 +159,14 @@ main content basic style
   border:1px #00000;
 }
 
+iframe{
+    margin-top: 160px;
+    align-self: center;
+    display: block;
+    margin-left: 5%;
+    width: 90%;  
+}
+
 /* -------------------------------- 
 
 Main Components 
