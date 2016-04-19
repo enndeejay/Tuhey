@@ -59,9 +59,9 @@
 .hide-checkbox + label {
 display: block;
 float: left;
-width: 90px;
+width: 28%;
 padding: 8px 4px 8px 4px; 
-margin: 0px 8px 0px 8px;
+margin: 0px 5px 0px 10px;
 text-align: center;
 background-color: #b83615;
 font-family: 'Oswald', sans-serif;
