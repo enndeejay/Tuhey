@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- calendar links -->
+    
+	<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/form.css"> 
+	<!-- -->
+	
+	<!-- firebase script -->
+	<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+	
+	<link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+  	
+	<title>Tuhey Pool</title>
+	<br />
+	<!-- calendar script -->
+	<script>
+		$(function() {
+			$( "#datepicker-1" ).datepicker({
+			
+				onSelect: function (date) {
+					var date = $(this).val();
+					document.getElementById("output").innerHTML = date;
+					
+					$.getJSON('https://burning-inferno-4114.firebaseio.com/Calendar.json', function(data) {
+						 
+						var empty = true;
+						document.getElementById("events").innerHTML = "";
+						$.each(data, function(index, value) {
+							// value contains {"data":"x", "type":"y"}
+							if(value.Date == date)
+							{
+                                empty = false;
+								var events = document.getElementById("events").innerHTML;
+								events += "<h3>" + value.Name + " -- " + value.Time;
+                                if(value.Description!=null){
+                                    events += "<br/>Description: " + value.Description;   
+                                }
+                                events += "</h3><a href='#' onclick='EditEvent(\"" + index + "\",\"" + value.Name +"\",\"" + value.Time + "\",\"" + value.Description + "\",\"" + value.Date + "\");'>Edit</a> | <a href='#' onclick='DeleteEvent(\"" + index + "\");'>Delete</a><br/><br/>";
+								//document.getElementById("output2").innerHTML = value.Name + " at " + value.Time; 
+								document.getElementById("events").innerHTML = events;
+                                document.getElementById("output2").innerHTML = "";
+							}
+						});
+						if(empty)
+						{
+							document.getElementById("events").innerHTML = "";
+                            document.getElementById("output2").innerHTML = "No Events";
+						}
+					});
+					
+				}
+			
+			});
+			
+		});
+        
+		
+        function EditEvent(key, event, time, description, date){
+			DeleteEvent(key);
+			document.getElementById("events").innerHTML = "";
+			var events = "";
+			
+			events += "<input type=\"text\" class=\"txbx\" id=\"nameInput\" value=\"" + event +"\" onfocus=\"if(this.value=='Event Name') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"timeInput\" value=\"" + time +"\" onfocus=\"if(this.value=='Time') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"descInput\" value=\"" + description +"\" onfocus=\"if(this.value=='Description') this.value='';\"></input><br>";
+			events += "<input type=\"text\" class=\"txbx\" id=\"dateInput\" value=\"" + date +"\" onfocus=\"if(this.value=='Date') this.value='';\"></input><br>";
+			events += "<button onclick=\"AddEvent()\" class=\"myButton\">Update Event</button>";
+			
+			
+			document.getElementById("events").innerHTML = events;
+			
+			
+			
+        }
+        
+        function DeleteEvent(key){
+            var fredRef = new Firebase('https://burning-inferno-4114.firebaseio.com/Calendar/' + key);
+			fredRef.remove();
+			document.getElementById("events").innerHTML = "<h3>Selected Events Removed<h3>";
+        }
+		
+		function AddEvent(){
+		
+		
+            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/Calendar");               
+			var date = document.getElementById("dateInput").value;
+			var name = document.getElementById("nameInput").value;
+			var time = document.getElementById("timeInput").value; 
+			var desc = document.getElementById("descInput").value;
+			
+			ref.push({
+				Date: date,
+				Name: name, 
+				Time: time,
+				Description: desc
+			}); 
+			document.getElementById("events").innerHTML = "<h3>Event Edited</h3>";
+		
+		}
+		
+		
+	</script> 
+		
+		<!-- End Calender Script -->
+		<!-- Calendar Style -->
+		
+		<style>
+			
+			div.ui-datepicker{
+				
+				background: #88A1B7;
+			}
+			
+			.ui-datepicker tbody td {
+			
+			}
+			
+			div.ui-datepicker-header{
+			
+				background: #375D81;
+				border-width:0px;
+			
+			}
+			.ui-datepicker-calendar .ui-state-active {
+			
+				background: #c54043;
+				border: 1px solid #621e1f;
+				color: #e0e0e0;
+				
+			}
+			
+			.ui-datepicker-calendar .ui-state-hover {
+			
+				background: #d57779;
+				border: 1px solid #e0e0e0;
+				color: #e0e0e0;
+			
+			}
+			
+			.ui-datepicker-today a.ui-state-highlight {
+			
+				background: #cfd9e2;
+				border: 0px;
+			}
+			
+			.ui-datepicker-today a.ui-state-active {
+			
+				background: #c54043;
+				border: 1px solid #621e1f;
+				color: #e0e0e0;
+			}
+			
+            h3{
+                color: #fff;
+                margin:4px;
+                font-family: georgia;
+                font-weight: italics;
+            }
+            
+            html{
+                background-image: url(/img/bluebg.jpg); 
+                background-color: #114e85;
+                color: #fff;
+            }
+            
+            a {
+              color:darksalmon;  
+            }
+		</style>
+		
+		<!-- end calendar style -->
+	
+</head>
+<body>
+    <form target="_parent">
+        <button class="myButton" formaction="Administration.html"><< Back to admin page</button>
+    </form> 
+    
+<center>
+    <br/><br/>
+    Select the date that your desired event is on. Under your event, you are able to edit or delete said event. <br /><br/>
+</center>
+
+	
+	<table>
+			<tr>
+				<td style="width:40%">
+				</td>
+				<td>
+					<div type="text" id="datepicker-1" name="datepicker1"/>
+				</td>
+				<td style="width:40%">
+				</td>
+			</tr>
+	</table>
+    <center> <br /> 
+	<h3 id="output"></h3>
+	<h3 id="output2"><h3>
+	<div id="events">
+    </center>
+</main>
+</div>
+</div>
+
+<script src="js/jquery-2.1.4.js"></script>
+<script src="js/main.js"></script> 
+</body>
+</html>
