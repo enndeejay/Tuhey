@@ -55,9 +55,10 @@
                                 element.style.display = 'none';
                             });
 
-                            var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/");
-                            var statusRef = ref.child("status");
                             function SubmitStatus() {
+                                var statusRef = new Firebase("https://burning-inferno-4114.firebaseio.com/");
+                                var statusRef = ref.child("status");
+                                
                                 SuccessOutput();
                                 desc = document.getElementById("description").value;
                                 
@@ -79,6 +80,7 @@
                                     description: desc
                                 });
                                 
+                                statusRef.unauth();
                             }
                             
                             function SuccessOutput() {
