@@ -65,14 +65,14 @@ a {
 b {
   font-family: georgia; 
   font-weight:bolder;
-  color:#243040;
+  color:#6eb0ec;
 }
 
 i {
   font-family: georgia;
   font-style: italic;
   font-weight:bold;
-  color:#c8464a;
+  color:#851114;
 }
 
 a,.a:active,a:visited,a:hover {
@@ -92,7 +92,7 @@ img {
   font-style: italic;
   font-size: 3.0rem;
   text-align: center;
-  color: #003c5d;
+  color:#164151;
 }
 
 .background {
