@@ -57,7 +57,7 @@
 
                             function SubmitStatus() {
                                 var statusRef = new Firebase("https://burning-inferno-4114.firebaseio.com/");
-                                var statusRef = ref.child("status");
+                                var statusRef = statusRef.child("status");
                                 
                                 SuccessOutput();
                                 desc = document.getElementById("description").value;
