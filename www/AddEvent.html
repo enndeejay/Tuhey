@@ -14,6 +14,7 @@
 	<script src="js/modernizr.js"></script> 
 	<script src="js/jquery-2.1.1.js"></script>
 	<script src="js/main.js"></script> 
+    <script src="js/DateValidator.js"></script> 
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -49,7 +50,9 @@
                     </form>
                     </center>
         
-                    <script> 
+                    <script>  
+                        var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/ ;
+                        
                         function ClearFields(){
                             document.getElementById("nameInput").value = "Event Name";
                             document.getElementById("dateInput").value = "MM/DD/YYYY";
@@ -60,26 +63,35 @@
                         var ref = new Firebase("https://burning-inferno-4114.firebaseio.com/Calendar");
                         
                         function AddEvent() {
-                            SuccessOutput();
-                            
                             var eventName = document.getElementById("nameInput").value;
                             var dateInput = document.getElementById("dateInput").value;
                             var timeInput = document.getElementById("timeInput").value; 
                             var descInput = document.getElementById("descInput").value;
+                            
+                            if(date_regex.test(dateInput)){
+                                SuccessOutput();
 
-                            ref.push({
-                                Date: dateInput,
-                                Name: eventName, 
-                                Time: timeInput,
-                                Description: descInput
-                            }); 
+                                ref.push({
+                                    Date: dateInput,
+                                    Name: eventName, 
+                                    Time: timeInput,
+                                    Description: descInput
+                                });    
+                            }
+                            else{
+                                ErrorOutput();
+                            }
                             
                             ref.unauth();
                          } 
                         
                         function SuccessOutput() {
-                            document.getElementById("UserMessage").innerHTML = "Success: Event Added!";   
+                            alert("Success: Event Added!");   
                         }
+                        
+                        function ErrorOutput() {
+                            alert("Error: Enter correct format!");   
+                        } 
                     </script>
             </div> 
     </div>
